@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sami Miri • Portfolio</title>
+    <meta
+      name="description"
+      content="Sami Miri — automation, web development, and human-centered software. Projects include OptiLife, Xander AI, and workflow automation case studies."
+    />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                850: '#151e2e',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Font Awesome (optional, keep if you use icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global CSS polish + Vibrant theme + Floating Chat widget styles -->
+    <style>
+      :root {
+        /* Light mode defaults */
+        --bg-base: #f8fafc;
+        --bg-gradient-1: rgba(168, 85, 247, 0.08); /* softer for light mode */
+        --bg-gradient-2: rgba(34, 197, 94, 0.08);
+        --bg-gradient-3: rgba(6, 182, 212, 0.08);
+        
+        /* Chat widget theme - Light */
+        --chat-accent-1: #22c55e;
+        --chat-accent-2: #a855f7;
+        --chat-bg: rgba(255, 255, 255, 0.95);
+        --chat-text: #0f172a;
+        --chat-muted: #64748b;
+        --chat-border: #e2e8f0;
+        --chat-input-bg: #f1f5f9;
+        --bubble-user-bg: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(168, 85, 247, 0.2));
+        --bubble-asst-bg: #f1f5f9;
+      }
+
+      .dark {
+        /* Dark mode overrides */
+        --bg-base: #050814;
+        --bg-gradient-1: rgba(168, 85, 247, 0.18);
+        --bg-gradient-2: rgba(34, 197, 94, 0.16);
+        --bg-gradient-3: rgba(6, 182, 212, 0.14);
+
+        /* Chat widget theme - Dark */
+        --chat-bg: rgba(15, 23, 42, 0.95);
+        --chat-text: #f1f5f9;
+        --chat-muted: #94a3b8;
+        --chat-border: rgba(255, 255, 255, 0.1);
+        --chat-input-bg: rgba(255, 255, 255, 0.05);
+        --bubble-user-bg: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(168, 85, 247, 0.14));
+        --bubble-asst-bg: rgba(255, 255, 255, 0.05);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background:
+          radial-gradient(900px 700px at 20% 15%, var(--bg-gradient-1), transparent 55%),
+          radial-gradient(900px 700px at 85% 10%, var(--bg-gradient-2), transparent 55%),
+          radial-gradient(900px 700px at 65% 85%, var(--bg-gradient-3), transparent 55%),
+          var(--bg-base);
+        color: var(--chat-text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Nicer text selection */
+      ::selection {
+        background: rgba(56, 189, 248, 0.35);
+      }
+
+      /* Subtle glow background layer (extra depth) */
+      .bg-glow {
+        position: relative;
+        overflow-x: clip;
+      }
+      .bg-glow::before,
+      .bg-glow::after {
+        content: "";
+        position: absolute;
+        inset: -220px;
+        pointer-events: none;
+        z-index: 0;
+        /* Re-use CSS vars for consistent theming */
+        background:
+          radial-gradient(650px 650px at 12% 18%, var(--bg-gradient-2), transparent 60%),
+          radial-gradient(800px 800px at 88% 12%, var(--bg-gradient-1), transparent 62%),
+          radial-gradient(850px 850px at 70% 88%, var(--bg-gradient-3), transparent 60%);
+      }
+      .bg-glow::after {
+        opacity: 0.7;
+      }
+
+      /* Ensure app content sits above glow */
+      .content-layer {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Gradient text utility */
+      .gradient-text {
+        background: linear-gradient(90deg, #22c55e, #a855f7, #06b6d4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Subtle lift animation for cards */
+      .lift {
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+      }
+      .lift:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      }
+      .dark .lift:hover {
+         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      }
+
+      /* Accessible focus ring */
+      :focus-visible {
+        outline: 2px solid rgba(6, 182, 212, 0.7);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+
+      /* Scrollbar polish (Chrome/Edge) */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(2, 6, 23, 0.05);
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: rgba(2, 6, 23, 0.75);
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.5);
+        border-radius: 999px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.25);
+        border: 2px solid rgba(2, 6, 23, 0.75);
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(148, 163, 184, 0.7);
+      }
+
+      /* -----------------------------
+         Floating Chat Widget Styles
+      ------------------------------ */
+      .chat-launcher {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 9999;
+      }
+
+      .chat-fab {
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: linear-gradient(135deg, var(--chat-accent-1), var(--chat-accent-2));
+        color: white;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: transform 160ms ease, filter 160ms ease;
+      }
+      .chat-fab:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+      }
+      .chat-fab:active {
+        transform: translateY(0px);
+      }
+
+      .chat-panel {
+        position: fixed;
+        right: 18px;
+        bottom: 86px;
+        width: 360px;
+        height: 520px;
+        border-radius: 20px;
+        background: var(--chat-bg);
+        color: var(--chat-text);
+        border: 1px solid var(--chat-border);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        z-index: 9999;
+        transform: translateY(12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 160ms ease, transform 160ms ease;
+      }
+      .dark .chat-panel {
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      }
+
+      .chat-panel.open {
+        transform: translateY(0px);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .chat-header {
+        padding: 14px 14px 12px 14px;
+        background: linear-gradient(
+          135deg,
+          var(--bg-gradient-2),
+          var(--bg-gradient-1),
+          var(--bg-gradient-3)
+        );
+        border-bottom: 1px solid var(--chat-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .chat-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .chat-avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--chat-accent-1), var(--chat-accent-2));
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 900;
+        flex: 0 0 auto;
+      }
+
+      .chat-title h4 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 900;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .chat-title p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--chat-muted);
+      }
+
+      .chat-close {
+        border: 1px solid var(--chat-border);
+        background: rgba(255, 255, 255, 0.7);
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        cursor: pointer;
+        color: #0f172a;
+      }
+      .dark .chat-close {
+        background: rgba(255, 255, 255, 0.1);
+        color: #f1f5f9;
+      }
+      
+      .chat-close:hover {
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .dark .chat-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .chat-body {
+        height: calc(520px - 62px - 64px);
+        padding: 12px;
+        overflow: auto;
+      }
+
+      .chat-input {
+        border-top: 1px solid var(--chat-border);
+        padding: 10px;
+        background: var(--chat-bg);
+      }
+
+      .chat-row {
+        display: flex;
+        margin: 10px 0;
+      }
+      .chat-row.user {
+        justify-content: flex-end;
+      }
+      .chat-row.assistant {
+        justify-content: flex-start;
+      }
+
+      .bubble {
+        max-width: 85%;
+        padding: 10px 12px;
+        border-radius: 16px;
+        font-size: 13px;
+        line-height: 1.35;
+        border: 1px solid var(--chat-border);
+      }
+
+      .bubble.user {
+        background: var(--bubble-user-bg);
+        color: #0f172a; /* darker text for readability on light/gradient bg */
+      }
+      .dark .bubble.user {
+         color: #e2e8f0;
+      }
+
+      .bubble.assistant {
+        background: var(--bubble-asst-bg);
+      }
+
+      .chat-hint {
+        font-size: 12px;
+        color: var(--chat-muted);
+      }
+
+      /* Mobile: full-width panel */
+      @media (max-width: 480px) {
+        .chat-panel {
+          left: 12px;
+          right: 12px;
+          width: auto;
+          height: 70vh;
+          bottom: 86px;
+        }
+        .chat-body {
+          height: calc(70vh - 62px - 64px);
+        }
+      }
+
+      /* Motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .lift {
+          transition: none;
+        }
+        .lift:hover {
+          transform: none;
+          box-shadow: none;
+        }
+        .chat-fab {
+          transition: none;
+        }
+        .chat-panel {
+          transition: none;
+        }
+      }
+    </style>
+
+    <!-- Import map (ESM) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.2.4/",
+          "react": "https://esm.sh/react@^19.2.4",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+          "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-glow">
+    <div id="root" class="content-layer"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      // Init theme to avoid flash
+      (function() {
+        const theme = localStorage.getItem('theme');
+        const sys = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && sys)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </body>
+</html>
