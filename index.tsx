@@ -47,7 +47,7 @@ const PROFILE = {
     linkedin: "https://www.linkedin.com/in/sami-miri-64a017267/",
     resume:
       "https://docs.google.com/document/d/1SwEa9ZsodYsCX2z76kvHG0zp2ONLZCQ9/edit?usp=sharing&ouid=110823803306812222170&rtpof=true&sd=true",
-    github: "#", 
+    github: "https://github.com/SamiMiri", 
   },
 };
 
