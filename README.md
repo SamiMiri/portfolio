@@ -1,7 +1,3 @@
-Here’s a **cleaner, more attractive README** that fits a **portfolio repo** better (recruiters will see this first). You can **copy-paste directly into `README.md`**.
-
----
-
 # ✨ Sami Miri — Engineering Portfolio
 
 ![Portfolio Preview](image_2026-02-12_164517471.png)
@@ -293,14 +289,5 @@ Google Gemini API
 
 This portfolio was initially scaffolded using **Google AI Studio**, then expanded and customized to reflect my projects and engineering work.
 
----
-
-If you'd like, I can also help you make it **even better for recruiters** by adding:
-
-• GitHub badges
-• deployment instructions
-• project screenshots
-• animated preview GIF
-• a **portfolio visitor counter**
 
 (which actually looks really nice on portfolio repos).
