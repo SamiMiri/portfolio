@@ -52,7 +52,7 @@ const PROFILE = {
 };
 
 const HERO = {
-  headline: "Automation + Web Experiences built with empathy and engineering discipline.",
+  headline: "Automation + Web Experiences built with engineering discipline.",
   subhead:
     "I build tools that make work smoother for teams and day-to-day life easier for real people. My focus spans workflow automation, modern front-end development, and clear interfaces people can trust.",
 };
