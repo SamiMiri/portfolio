@@ -1,107 +1,306 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+Here’s a **cleaner, more attractive README** that fits a **portfolio repo** better (recruiters will see this first). You can **copy-paste directly into `README.md`**.
 
-Sami Miri – Engineering Portfolio
+---
 
-A responsive, single‑page engineering portfolio built with React, TypeScript and Tailwind CSS. It showcases my projects, skills, experience and leadership, with an accessible design and a Gemini‑powered Q&A widget.
+# ✨ Sami Miri — Engineering Portfolio
 
-Features
+![Portfolio Preview](image_2026-02-12_164517471.png)
 
-Hero and About sections – Introduces who I am, where I'm based and my engineering philosophy.
+Welcome!
+This repository contains the source code for my **personal engineering portfolio**, where I showcase projects, technical experience, and work focused on **automation, accessible tools, and modern web development**.
 
-Skills grid – Lists languages, frameworks, automation/data tools and other tooling.
+The site highlights work ranging from hackathon builds to automation systems used in real organizations.
 
-Projects section with filters – Displays featured projects, professional experience and personal builds. Each card includes the project title, subtitle, timeframe, description, impact, technology stack and links.
+---
 
-Leadership & Community – Highlights volunteering and leadership roles.
+# 🌐 Live Portfolio
 
-Contact section – Shows phone, email and links to my LinkedIn and résumé; call‑to‑action buttons encourage reaching out.
+Coming soon — deployable with Vercel / Netlify.
 
-Gemini‑powered portfolio Q&A widget – Users can ask questions like “Which project shows automation?”; responses are generated using a Google Gemini model and restricted to portfolio content.
+---
 
-Dark/light theme and responsive design – Built with Tailwind CSS and Vite, the site works on desktops and mobile devices.
+# 🧑‍💻 About Me
 
-Modular and easy to update – Profile details, project definitions and text content are stored as constants in index.tsx.
+I'm **Sami Miri**, an engineering student based in **Round Rock, Texas** currently pursuing an **Associate of Engineering at Austin Community College**.
 
-Getting Started
-Prerequisites
+I build tools that:
 
-Node.js
- (v18 or later)
+• simplify workflows
+• automate repetitive processes
+• create clean and trustworthy user interfaces
 
-A Gemini API
- key if you want the Q&A widget to work
+My interests include:
 
-Installation
+* Automation & workflow engineering
+* Modern frontend development
+* AI-powered tools
+* Human-centered software design
 
-Clone the repository
+---
 
+# 🚀 Featured Projects
+
+### 🧠 OptiLife
+
+**AI Financial Wellness Assistant**
+
+Built during **HackTX 2025 (36-hour hackathon)**
+
+Features:
+
+* AI-powered financial guidance
+* spending habit analysis
+* personalized savings recommendations
+
+Tech:
+
+```
+React
+TypeScript
+Tailwind
+Gemini API
+```
+
+---
+
+### 🎙 Xander AI
+
+**Voice Assistant for Everyday Workflows**
+
+A Python-based assistant focused on accessibility and hands-free interaction.
+
+Features:
+
+* wake-word voice activation
+* natural language commands
+* GPT-powered responses
+
+Tech:
+
+```
+Python
+SpeechRecognition
+pyAudio
+OpenAI API
+```
+
+---
+
+### 🧾 Fintech Data Automation Pipelines
+
+**Software Engineering Internship — ZSuite Tech**
+
+Automation system for financial reconciliation workflows.
+
+Impact:
+
+* reduced processing time **~70%**
+* reduced reconciliation errors **~90%**
+
+Tech:
+
+```
+Excel
+VBA
+SQL
+Automation pipelines
+```
+
+---
+
+### 🏢 Franchise Workflow Automation
+
+**Technical Assistant Intern — ResiBrands**
+
+Built automation pipelines connecting form data to contract generation and e-signature workflows.
+
+Tech:
+
+```
+Zapier
+Juro
+Cognito Forms
+Webhooks
+JavaScript
+```
+
+---
+
+### 🤖 Ope Ope No Mi
+
+**Discord Bot**
+
+A community utility bot with moderation and engagement tools.
+
+Tech:
+
+```
+Python
+Discord.py
+API integrations
+```
+
+---
+
+### 🎮 Gaming E-commerce Concept
+
+Frontend experiment focused on responsive UI and interactive browsing.
+
+Tech:
+
+```
+HTML
+CSS
+JavaScript
+```
+
+---
+
+# 🧰 Tech Stack
+
+### Languages
+
+```
+Python
+JavaScript
+TypeScript
+HTML
+CSS
+VBA
+```
+
+### Frameworks
+
+```
+React
+React Native
+Flask
+```
+
+### Tools
+
+```
+Git
+Figma
+Zapier
+Google Workspace
+Advanced Excel
+```
+
+### Data & Automation
+
+```
+SQL
+APIs
+Webhooks
+JSON
+Automation pipelines
+```
+
+---
+
+# ⚙️ Running the Portfolio Locally
+
+### 1️⃣ Clone the repository
+
+```bash
 git clone https://github.com/SamiMiri/portfolio.git
 cd portfolio
+```
 
-Install dependencies
+---
 
+### 2️⃣ Install dependencies
+
+```bash
 npm install
+```
 
-Configure environment variables
-Create a .env.local file in the project root and define your Gemini API key:
+---
 
-# Google Gemini API key for the Q&A widget
-API_KEY=your_key_here
+### 3️⃣ Add your Gemini API key
 
-The code uses process.env.API_KEY when calling @google/genai.
+Create a `.env.local` file:
 
-Run the development server
+```
+API_KEY=your_gemini_api_key_here
+```
 
+---
+
+### 4️⃣ Start the development server
+
+```bash
 npm run dev
+```
 
-Open your browser to http://localhost:5173 (or the port shown in the terminal) to view the portfolio.
+Then open:
 
-Building for Production
+```
+http://localhost:5173
+```
 
-To create an optimized production build:
+---
 
-npm run build
+# 🤖 AI Portfolio Assistant
 
-This will generate static files in the dist/ folder. You can preview the build locally with:
+The portfolio includes a **built-in AI Q&A widget** powered by **Google Gemini**.
 
-npm run preview
+Visitors can ask questions like:
 
-Deploy the contents of dist/ to any static hosting service (e.g. Vercel, Netlify, GitHub Pages).
+* *“Which project shows automation?”*
+* *“What did you build at ZSuite?”*
+* *“What technologies do you use most?”*
 
-Customization
+The assistant answers using only information from the portfolio.
 
-This portfolio is easy to customize; open index.tsx and modify the constants at the top of the file:
+---
 
-PROFILE – your name, location, email, phone, image and external links.
+# 🎯 Purpose of This Portfolio
 
-HERO – the headline and subhead that appear in the hero section.
+This site serves as:
 
-ABOUT – the narrative that appears in the About section.
+* a **technical portfolio**
+* a **project showcase**
+* a **learning log**
+* a **demonstration of engineering thinking**
 
-SKILLS – arrays of skill groups and the items within them.
+---
 
-PROJECTS – an array of objects describing each project with title, subtitle, timeframe, kind (Featured, Experience, or Project), status, description, impact, tech and links.
+# 📫 Contact
 
-LEADERSHIP – details about volunteer or leadership roles.
+📧 Email
+[samimiri159@gmail.com](mailto:samimiri159@gmail.com)
 
-After editing these constants, save the file and restart the dev server to see your changes.
+🔗 LinkedIn
+[https://www.linkedin.com/in/sami-miri-64a017267/](https://www.linkedin.com/in/sami-miri-64a017267/)
 
-Tech Stack
+---
 
-React 19 and React DOM – component framework for building the user interface.
+# 🛠 Built With
 
-TypeScript – type‑safe JavaScript.
+```
+React
+TypeScript
+Vite
+Tailwind CSS
+Google Gemini API
+```
 
-Tailwind CSS – utility‑first CSS framework for styling.
+---
 
-Vite – development server and build tool.
+# 📌 Notes
 
-@google/genai – Gemini client library for the Q&A widget.
+This portfolio was initially scaffolded using **Google AI Studio**, then expanded and customized to reflect my projects and engineering work.
 
-License
+---
 
-This project is currently private and no license file is provided. Feel free to fork and adapt the code for personal use, but please do not distribute without permission.
+If you'd like, I can also help you make it **even better for recruiters** by adding:
 
-This portfolio was generated using Google AI Studio and hand‑tuned to present my engineering work in an accessible way. I hope you enjoy exploring it!
+• GitHub badges
+• deployment instructions
+• project screenshots
+• animated preview GIF
+• a **portfolio visitor counter**
+
+(which actually looks really nice on portfolio repos).
