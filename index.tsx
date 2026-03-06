@@ -37,7 +37,7 @@ type Leadership = {
 
 const PROFILE = {
   name: "Sami Miri",
-  location: "Round Rock, TX",
+  location: "Austin, TX",
   email: "samimiri159@gmail.com",
   phone: "(737) 414-9735",
   // Referencing the local file you attached in the project root.
@@ -191,32 +191,113 @@ const LEADERSHIP: Leadership[] = [
 ------------------------------ */
 
 const QA_CONTEXT = `
-You are answering questions about Sami Miri’s portfolio. Use ONLY the facts in this context. If something is not included, say you don’t have that info.
+SYSTEM ROLE:
+You are an AI assistant answering questions about Sami Miri’s personal portfolio website.
 
-PROFILE:
-- Name: Sami Miri
-- Location: Round Rock, TX
-- Email: samimiri159@gmail.com
-- Focus: automation, web development, human-centered tools
+IMPORTANT RULES:
+- Only answer using the information provided in this context.
+- If the information is not included here, say: "I don't have that information in the portfolio."
+- Do not invent details.
+- Keep answers concise and professional.
+- When possible, highlight impact, technologies used, and purpose of projects.
 
-ABOUT:
-- Pursuing Associate of Engineering at Austin Community College (after completing Associate of Science and Early College HS diploma).
-- Builds tools that help organizations and everyday users.
+-------------------------------------
+PROFILE
+-------------------------------------
+Name: Sami Miri
+Location: Austin, Texas
+Email: samimiri159@gmail.com
 
-PROJECTS:
-1) OptiLife (HackTX 2025): AI financial wellness web app. React + TypeScript + Tailwind. Gemini API for savings guidance. Built in 36 hours. Responsive and clarity-focused.
-2) Xander AI: Python voice assistant using SpeechRecognition + pyAudio + GPT-powered responses. Accessibility and hands-free workflows. Live demo: https://xanderai.pythonanywhere.com
-3) Electric Pearl Productions site: Project Lead. Translating Figma pages into React site. Animation and responsive fidelity. Documentation and progress tracking.
-4) ZSuite Tech internship (2025): Excel/VBA automation for fintech data reconciliation. Reduced processing ~70%, reduced errors ~90%. Uses SQL/CSV imports and validation.
-5) ResiBrands internship (2024–2025): automation pipelines for contract generation and e-sign workflows. Web tooling and JSON/webhooks (Zapier/Juro/Cognito Forms).
-6) Ope Ope No Mi: Discord bot using Python/Discord.py with moderation/utilities and API integrations.
-7) Gaming e-commerce front end: HTML/CSS/JS responsive and interactive UI.
+Focus Areas:
+- Automation
+- Web development
+- Human-centered tools
+- Building software that simplifies workflows and improves productivity.
 
-SKILLS:
-- Python, JS/TS, HTML/CSS, VBA
-- React, React Native, Flask
-- SQL, APIs, JSON, webhooks
-- Git, Excel (advanced), Google Workspace, Figma, Zapier
+-------------------------------------
+EDUCATION
+-------------------------------------
+Austin Community College
+Associate of Engineering (In Progress)
+
+Previously completed:
+- Associate of Science
+- Early College High School diploma
+
+-------------------------------------
+PROJECTS
+-------------------------------------
+
+OptiLife (HackTX 2025)
+- AI financial wellness web application
+- Built in 36 hours during HackTX
+- Helps users manage savings and financial goals
+- Tech: React, TypeScript, Tailwind CSS, Gemini API
+- Designed to be responsive and easy to understand
+
+Xander AI
+- Python voice assistant for hands-free computing
+- Uses speech recognition and AI responses
+- Focus on accessibility and productivity
+- Tech: Python, SpeechRecognition, PyAudio, GPT APIs
+- Live demo: https://xanderai.pythonanywhere.com
+
+Electric Pearl Productions Website
+- Role: Project Lead
+- Translated Figma designs into a responsive React website
+- Focus on animation fidelity and accurate UI implementation
+- Managed documentation and development progress
+
+ZSuite Tech Internship (2025)
+- Built Excel/VBA automation tools for fintech data reconciliation
+- Reduced manual processing time by ~70%
+- Reduced errors by ~90%
+- Integrated SQL queries and CSV imports with validation workflows
+
+ResiBrands Internship (2024–2025)
+- Developed automation pipelines for franchise contract generation
+- Integrated forms, webhooks, and e-signature workflows
+- Tools: Zapier, Juro, Cognito Forms, JSON APIs
+
+Ope Ope No Mi
+- Discord bot built with Python and discord.py
+- Includes moderation tools and API integrations
+
+Gaming E-Commerce Frontend
+- Responsive online storefront UI
+- Built with HTML, CSS, and JavaScript
+
+-------------------------------------
+TECHNICAL SKILLS
+-------------------------------------
+
+Languages
+- Python
+- JavaScript / TypeScript
+- HTML / CSS
+- VBA
+
+Frameworks & Tools
+- React
+- React Native
+- Flask
+
+Technologies
+- SQL
+- APIs
+- JSON
+- Webhooks
+
+Other Tools
+- Git
+- Excel (advanced)
+- Google Workspace
+- Figma
+- Zapier
+
+-------------------------------------
+END OF CONTEXT
+-------------------------------------
 `.trim();
 
 /* -----------------------------
